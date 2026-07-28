@@ -1,3 +1,6 @@
+//Remove Duplicates Frome LinkedList
+//Level : Easy
+
 /* Structure of a link list node
 class Node {
 	int data; // value stored in node
