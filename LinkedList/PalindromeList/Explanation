@@ -1,0 +1,70 @@
+# Palindrome Linked List
+
+## Approach
+
+This solution checks whether a singly linked list is a palindrome using the **Fast & Slow Pointer** technique along with **in-place reversal** of the second half of the list.
+
+### Algorithm
+
+1. **Find the middle of the linked list**
+
+   * Use two pointers:
+
+     * `slow` moves one step at a time.
+     * `fast` moves two steps at a time.
+   * When `fast` reaches the end, `slow` will be at the middle of the list.
+
+2. **Reverse the second half**
+
+   * Reverse the list starting from `slow.next`.
+   * This allows comparison of the first half with the reversed second half.
+
+3. **Compare both halves**
+
+   * Traverse both halves simultaneously.
+   * If any corresponding node values differ, the list is **not** a palindrome.
+
+4. **Restore the original list**
+
+   * Reverse the second half again to restore the linked list to its original structure.
+   * This ensures the input list remains unchanged.
+
+5. **Return the result**
+
+   * Return `true` if all corresponding nodes match; otherwise, return `false`.
+
+---
+
+## Why this works
+
+* The first half of the list remains unchanged.
+* Reversing the second half allows direct comparison without using extra memory.
+* Restoring the reversed half preserves the original linked list after the check.
+
+---
+
+## Time Complexity
+
+* Finding the middle: **O(n)**
+* Reversing the second half: **O(n/2)**
+* Comparing both halves: **O(n/2)**
+* Restoring the list: **O(n/2)**
+
+**Overall Time Complexity:** **O(n)**
+
+## Space Complexity
+
+* Only a few pointer variables are used.
+* No extra data structures are required.
+
+**Overall Space Complexity:** **O(1)**
+
+---
+
+## Key Concepts Used
+
+* Fast and Slow Pointers
+* Linked List Reversal
+* Two-Pointer Comparison
+* In-place Algorithm
+* Constant Extra Space
