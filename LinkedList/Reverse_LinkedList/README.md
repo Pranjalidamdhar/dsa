@@ -4,68 +4,26 @@
 
 Given the `head` of a singly linked list, reverse the list and return the new head.
 
-### Example 1
-
-**Input:**
-```
-head = [1,2,3,4,5]
-```
-
-**Output:**
-```
-[5,4,3,2,1]
-```
-
-### Example 2
-
-**Input:**
-```
-head = [1,2]
-```
-
-**Output:**
-```
-[2,1]
-```
-
-### Example 3
-
-**Input:**
-```
-head = []
-```
-
-**Output:**
-```
-[]
-```
-
 ---
 
-## Constraints
+## Solution Explanation
 
-- The number of nodes in the list is in the range **[0, 5000]**.
-- `-5000 <= Node.val <= 5000`
+### Approach
 
----
+We use an **iterative approach** with three pointers:
 
-## Approach (Iterative)
+- **temp**: Traverses the linked list.
+- **prev**: Keeps track of the previous node.
+- **front**: Stores the next node before reversing the link.
 
-We reverse the linked list by changing the direction of each node's `next` pointer.
+### Algorithm
 
-### Steps
-
-1. Initialize:
-   - `prev = null`
-   - `temp = head`
+1. Initialize `prev` as `null` and `temp` as `head`.
 2. Traverse the linked list until `temp` becomes `null`.
 3. Store the next node in `front`.
-4. Reverse the current node's pointer:
-   - `temp.next = prev`
-5. Move both pointers one step ahead:
-   - `prev = temp`
-   - `temp = front`
-6. After the loop ends, `prev` will point to the new head of the reversed linked list.
+4. Reverse the current node's link by setting `temp.next = prev`.
+5. Move `prev` to `temp` and `temp` to `front`.
+6. After the loop ends, `prev` points to the new head of the reversed list.
 
 ---
 
@@ -94,49 +52,26 @@ class Solution {
 ## Dry Run
 
 **Input:**
-
 ```
-1 → 2 → 3 → NULL
+1 → 2 → 3 → 4 → 5 → NULL
 ```
-
-| Step | prev | temp | Reversed List |
-|------|------|------|---------------|
-| Initial | NULL | 1 | NULL |
-| 1 | 1 | 2 | 1 → NULL |
-| 2 | 2 | 3 | 2 → 1 → NULL |
-| 3 | 3 | NULL | 3 → 2 → 1 → NULL |
 
 **Output:**
-
 ```
-3 → 2 → 1 → NULL
+5 → 4 → 3 → 2 → 1 → NULL
 ```
 
 ---
 
 ## Complexity Analysis
 
-- **Time Complexity:** `O(n)`
-  - Each node is visited exactly once.
-
-- **Space Complexity:** `O(1)`
-  - No extra data structure is used.
+- **Time Complexity:** `O(n)` – Each node is visited exactly once.
+- **Space Complexity:** `O(1)` – No extra space is used.
 
 ---
 
-## Key Concepts
+## Key Takeaways
 
-- Singly Linked List
-- Pointer Manipulation
-- Iterative Traversal
-- In-place Reversal
-
----
-
-## LeetCode
-
-**Problem:** Reverse Linked List  
-**Difficulty:** Easy
-
----
-```
+- Reverse the list **in-place** by updating each node's `next` pointer.
+- Use three pointers (`temp`, `prev`, and `front`) to avoid losing the remaining list.
+- This solution is efficient with **linear time** and **constant space**.
